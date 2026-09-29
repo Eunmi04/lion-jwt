@@ -1,0 +1,19 @@
+{
+  "name": "likelion-14th-jwt-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "멋쟁이사자처럼 14기 JWT 발급 실습용 코드",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
