@@ -29,8 +29,9 @@ async function issueToken(username, secret = process.env.JWT_SECRET, fetcher = f
 
   const users = await fetchUsers(fetcher)
 
-  const user = undefined
-
+const user = users.find(
+  (user) => user.username === username
+)
   if (!user) {
     const error = new Error('사용자 없음')
     error.status = 404
@@ -38,11 +39,15 @@ async function issueToken(username, secret = process.env.JWT_SECRET, fetcher = f
   }
 
   const payload = {
-
+  id: user.id,
+  username: user.username,
+  name: user.name,
+  email: user.email,
   }
 
-  const token = ''
-
+  const token = jwt.sign(payload, secret, {
+    expiresIn: '10m',
+  })
   return {
     token,
     user: {
