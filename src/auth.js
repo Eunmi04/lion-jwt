@@ -39,11 +39,11 @@ const user = users.find(
   }
 
   const payload = {
-  id: user.id,
+  sub: String(user.id),
   username: user.username,
   name: user.name,
   email: user.email,
-  }
+}
 
   const token = jwt.sign(payload, secret, {
     expiresIn: '10m',
